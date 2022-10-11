@@ -3,6 +3,7 @@ import {Navigate, useNavigate } from "react-router-dom";
 import Header from '../components/Header';
 import Logout from "../components/Logout";
 import axios from "axios";
+import SERVERURI from '../config';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Dashboard = () => {
   }
 
   const getChat = ()=> {
-    axios.post('http://localhost:3001/user/get',{},{headers:{"token":token_key}})
+    axios.post(`${SERVERURI}/user/get`,{},{headers:{"token":token_key}})
     .then((res)=>{
       if (res.status===200){
         window.localStorage.setItem("roomname", res.data.roomname);

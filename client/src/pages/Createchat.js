@@ -3,6 +3,7 @@ import { Navigate,useNavigate } from "react-router-dom";
 import axios from "axios";
 import Warning from '../components/Warning';
 import Header from '../components/Header';
+import SERVERURI from '../config';
 
 const Createchat = () => {
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Createchat = () => {
     const createChat = async (e) => {
         setBtn(true);
         let data = passbox ? {name:chat.name} : {name:chat.name,password:chat.password} ;
-        await axios.post('http://localhost:3001/chatroom/create',data,{headers:{"token":token_key}})
+        await axios.post(`${SERVERURI}/chatroom/create`,data,{headers:{"token":token_key}})
             .then((res)=>{
                 if (res.status === 200)  {
                   setWarning({Show:true,Title:'Sucessful',Message:res.data.message,Type:'Sucess'});

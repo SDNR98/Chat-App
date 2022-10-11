@@ -5,9 +5,8 @@ import NoPage from "./pages/NoPage";
 import Login from "./pages/Login";
 import Dashboard from './pages/Dashboard.js';
 import Createchat from './pages/Createchat';
-import Joinchat from './pages/Joinchat'
+import Joinchat from './pages/Joinchat';
 import Chat from './pages/Chat';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 

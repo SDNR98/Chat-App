@@ -3,6 +3,7 @@ import { Navigate,useNavigate } from "react-router-dom";
 import axios from "axios";
 import Warning from '../components/Warning';
 import Header from '../components/Header';
+import SERVERURI from '../config';
 
 const Createchat = () => {
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Createchat = () => {
 
     const createChat = async (e) => {
         setBtn(true);
-        axios.post('http://localhost:3001/chatroom/join',chat,{headers:{"token":token_key}})
+        axios.post(`${SERVERURI}/chatroom/join`,chat,{headers:{"token":token_key}})
             .then((res)=>{
                 if (res.status === 200)  {
                     if (res.data.needPass){

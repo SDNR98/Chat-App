@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Warning from '../components/Warning';
+import SERVERURI from '../config';
 
-const Reg = () => {
+const Login = () => {
     const navigate = useNavigate();
     const [user,setUser] = useState({userName:'',password:''});
     const [warning,setWarning] = useState({Show:false,Title:'',Message:'',Type:''});
@@ -31,7 +32,7 @@ const Reg = () => {
 
 
     const sendData = async () => {
-        await axios.post('http://localhost:3001/user/login',user)
+        await axios.post(`${SERVERURI}/user/login`,user)
             .then((res)=>{
                 if (res.status === 200)  {
                   setWarning({Show:true,Title:'Sucessful',Message:res.data.message,Type:'Sucessful'});
@@ -77,4 +78,4 @@ const Reg = () => {
     ) 
   };
   
-  export default Reg;
+  export default Login;

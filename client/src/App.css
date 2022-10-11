@@ -262,6 +262,8 @@
 .header {
   position: absolute;
   width: 100%;
+  top:0px;
+  left:0px;
   height: 100px;
   background: #2E5B9E;
   backdrop-filter: blur(10px);
@@ -272,7 +274,7 @@
   width: 446px;
   height: 65px;
   left: calc(50% - 446px/2 + 1px);
-  top: 21px;
+  top: -30px;
   font-family: 'Barrio';
   font-style: normal;
   font-weight: 400;

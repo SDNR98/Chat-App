@@ -5,6 +5,7 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import axios from 'axios';
 import Warning from '../components/Warning';
 import Header from "../components/Header";
+import SERVERURI from '../config';
 
 function Chat() {
 
@@ -41,7 +42,7 @@ function Chat() {
 
   const leaveChatroom = async () => {
     socket.current.emit("leave", {auth:{auth:room_token}});
-    await axios.post('http://localhost:3001/user/leave',{},{headers:{"token":room_token}})
+    await axios.post(`${SERVERURI}/user/leave`,{},{headers:{"token":room_token}})
         .then((res)=>{
             if (res.status === 200)  {
               window.localStorage.removeItem("room_token");
@@ -63,7 +64,7 @@ function Chat() {
   }
 
   useEffect(()=> {
-    socket.current = io.connect("http://localhost:3001",{auth:{auth:room_token}});
+    socket.current = io.connect(`${SERVERURI}`,{auth:{auth:room_token}});
   },[])
 
   useEffect(() => {
