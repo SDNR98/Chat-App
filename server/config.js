@@ -4,5 +4,3 @@
  export const JWT_SECRET_ROOM= 'ZXmlMLACLAKckaclakLAKlakclazcsd';
  export const SERVERPORT = 3001;
  export const CLIENTURI = "http://localhost:3000";
-
-
